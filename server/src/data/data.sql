@@ -15,7 +15,7 @@ CREATE TABLE IF NOT EXISTS leads (
     phone VARCHAR(15),
     status VARCHAR(50) DEFAULT 'new',  -- new, contacted, qualified, converted, unqualified
     source VARCHAR(100),               -- referral, campaign, website
-    assigned_to INT REFERENCES users(id) ON DELETE SET NULL,
+    assigned_to INT REFERENCES users(id) ON DELETE SET NULL,   -- if user gets deleted then this field will be set to NULL
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );

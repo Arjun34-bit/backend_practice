@@ -1,4 +1,4 @@
-import pool from "../config/db.js";
+const pool = require("../config/db.js");
 
 const createUserTable = async () => {
   const queryText = `CREATE TABLE IF NOT EXISTS users (
@@ -36,8 +36,7 @@ const createLeadTable = async () => {
     pool.query(queryText);
     console.log("Lead table created");
   } catch (error) {
-    console.log("Error creating Lead table:", error);
+    console.log("Error creating Lead tables:", error);
   }
 };
-
-export default { createUserTable, createLeadTable };
+module.exports = { createUserTable, createLeadTable };
