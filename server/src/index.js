@@ -1,6 +1,8 @@
 const express = require("express");
 const cors = require("cors");
 const dotenv = require("dotenv");
+const helmet = require("helmet");
+const morgan = require("morgan");
 
 const createUserTable = require("./data/createTable");
 const createLeadTable = require("./data/createTable");
@@ -11,6 +13,9 @@ dotenv.config();
 
 app.use(cors());
 app.use(express.json());
+
+app.use(helmet());
+app.use(morgan("dev"));
 
 // createUserTable();
 // createLeadTable();
